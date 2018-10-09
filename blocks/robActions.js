@@ -1152,7 +1152,7 @@ Blockly.Blocks['robActions_write_to_pin'] = {
      */
 
     init : function() {
-        this.setColour(Blockly.CAT_ACTION_RGB);
+        this.setColour(Blockly.CAT_ACTION_RGB); //Configuro el color
         var valueType = new Blockly.FieldDropdown([ [ Blockly.Msg.ANALOG, 'ANALOG' ], [ Blockly.Msg.DIGITAL, 'DIGITAL' ] ], function(option) {
             if (option && this.sourceBlock_.getFieldValue('VALUETYPE') !== option) {
                 this.sourceBlock_.updatePins_(option);
@@ -1192,7 +1192,7 @@ Blockly.Blocks['robActions_write_to_pin'] = {
     updatePins_ : function(protocol) {
         this.protocol_ = protocol;
         if (protocol === 'ANALOG') {
-            var pins = Blockly.Blocks.robConfigDefinitions.pinsAnalog[this.workspace.subDevice]();
+            var pins = Blockly.Blocks.robConfigDefinitions.pinsDigital[this.workspace.subDevice]();
             var pinField = this.getField("PIN");
             pinField.menuGenerator_ = pins;
             pinField.setValue(pins[0][0]);
